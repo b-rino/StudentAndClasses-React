@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export default function StudentForm() {
+export default function StudentForm({ classes }) {
   const [student, setStudent] = useState("");
 
   return (
@@ -48,8 +48,11 @@ export default function StudentForm() {
         <div className="mb-3">
           <label htmlFor="class">Class</label>
           <select className="form-select" id="class">
-            <option value="Math 101">Math 101</option>
-            <option value="History 201">History 201</option>
+            {classes.map((c) => (
+              <option key={c.id} value={c.name}>
+                {c.name}
+              </option>
+            ))}
           </select>
         </div>
       </form>
