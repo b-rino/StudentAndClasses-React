@@ -1,6 +1,12 @@
 import { useState, useEffect } from "react";
 
-export default function StudentList() {
+export default function StudentList({ students, classes }) {
+  //For at lave Class id'er om til navne
+  const classMap = classes.reduce((acc, c) => {
+    acc[c.id] = c.name;
+    return acc;
+  }, {});
+
   return (
     <div className="container mt-4">
       <h2 className="mb-3">Student List</h2>
@@ -16,19 +22,23 @@ export default function StudentList() {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>Alice</td>
-            <td>20</td>
-            <td>alice@example.com</td>
-            <td>Math 101, History 201</td>
-            <td>
-              <div className="btn-group" role="group">
-                <button className="btn btn-primary">Edit</button>
-                <button className="btn btn-danger">Delete</button>
-              </div>
-            </td>
-          </tr>
+          {students.map((student) => (
+            <tr key={crypto.randomUUID()}>
+              <td>{student.id}</td>
+              <td>{student.name}</td>
+              <td>{student.age}</td>
+              <td>{student.email}</td>
+              <td>
+                {student.classes.map((classId) => classMap[classId]).join(", ")}
+              </td>
+              <td>
+                <div className="btn-group" role="group">
+                  <button className="btn btn-primary">Edit</button>
+                  <button className="btn btn-danger">Delete</button>
+                </div>
+              </td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>

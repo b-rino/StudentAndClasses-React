@@ -6,6 +6,7 @@ import { fetchData } from "./utils/persistence";
 
 function App() {
   const [classes, setClasses] = useState([]);
+  const [students, setStudents] = useState([]);
 
   const APIURLClasses = "http://localhost:3000/classes";
   const APIURLStudents = "http://localhost:3000/students";
@@ -13,6 +14,14 @@ function App() {
   function getClasses(callback) {
     fetchData(APIURLClasses, callback);
   }
+
+  function getStudents(callback) {
+    fetchData(APIURLStudents, callback);
+  }
+
+  useEffect(() => {
+    getStudents((data) => setStudents(data));
+  }, []);
 
   useEffect(() => {
     getClasses((data) => setClasses(data));
@@ -24,7 +33,7 @@ function App() {
         Student and Classes
       </h1>
       <StudentForm classes={classes} />
-      <StudentList />
+      <StudentList students={students} classes={classes} />
     </div>
   );
 }
