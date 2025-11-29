@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export default function StudentList({ students, classes }) {
+export default function StudentList({ students, classes, deleteById }) {
   //For at lave Class id'er om til navne
   const classMap = classes.reduce((acc, c) => {
     acc[c.id] = c.name;
@@ -23,7 +23,7 @@ export default function StudentList({ students, classes }) {
         </thead>
         <tbody>
           {students.map((student) => (
-            <tr key={crypto.randomUUID()}>
+            <tr key={student.id}>
               <td>{student.id}</td>
               <td>{student.name}</td>
               <td>{student.age}</td>
@@ -34,7 +34,12 @@ export default function StudentList({ students, classes }) {
               <td>
                 <div className="btn-group" role="group">
                   <button className="btn btn-primary">Edit</button>
-                  <button className="btn btn-danger">Delete</button>
+                  <button
+                    className="btn btn-danger"
+                    onClick={() => deleteById(student.id)}
+                  >
+                    Delete
+                  </button>
                 </div>
               </td>
             </tr>
