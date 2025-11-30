@@ -1,16 +1,6 @@
 {
   "students": [
     {
-      "id": 1,
-      "name": "Alice",
-      "age": 20,
-      "email": "alice@example.com",
-      "classes": [
-        1,
-        2
-      ]
-    },
-    {
       "id": 2,
       "name": "Bob",
       "age": 20,
@@ -46,6 +36,15 @@
       "classes": [
         1,
         2
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Alice",
+      "age": "21",
+      "email": "per@hello.dk",
+      "classes": [
+        1
       ]
     }
   ],

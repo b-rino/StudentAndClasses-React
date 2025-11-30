@@ -1,6 +1,11 @@
 import { useState, useEffect } from "react";
 
-export default function StudentList({ students, classes, deleteById }) {
+export default function StudentList({
+  students,
+  classes,
+  deleteById,
+  editStudent,
+}) {
   //For at lave Class id'er om til navne
   const classMap = classes.reduce((acc, c) => {
     acc[c.id] = c.name;
@@ -38,7 +43,12 @@ export default function StudentList({ students, classes, deleteById }) {
 
               <td>
                 <div className="btn-group" role="group">
-                  <button className="btn btn-primary">Edit</button>
+                  <button
+                    className="btn btn-primary"
+                    onClick={() => editStudent(student)}
+                  >
+                    Edit
+                  </button>
                   <button
                     className="btn btn-danger"
                     onClick={() => deleteById(student.id)}

@@ -13,10 +13,6 @@ function App() {
     classes: [],
   };
 
-  function editStudent(student) {
-    setStudentToEdit(student);
-  }
-
   // useStates
   const [classes, setClasses] = useState([]);
   const [students, setStudents] = useState([]);
@@ -80,6 +76,11 @@ function App() {
     }
   }
 
+  //edit student
+  function editStudent(student) {
+    setStudentToEdit(student);
+  }
+
   return (
     <div>
       <h1 className="text-center p-3 display-4 text-primary mb-4">
@@ -96,6 +97,7 @@ function App() {
         students={students}
         classes={classes}
         deleteById={deleteById}
+        editStudent={editStudent}
       />
     </div>
   );
