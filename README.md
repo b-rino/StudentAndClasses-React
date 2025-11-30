@@ -19,4 +19,4 @@ This is a school assignment with the purpose making of CRUD operations on a loca
 - Run command `npm install`
 - Run command `npm run dev`
 - Run command `npm run jsonserver`
-- Communicate with the REST API through `dev.http`-file or visit `http://localhost:5173`
+- Communicate with the API by visiting `http://localhost:5173`
