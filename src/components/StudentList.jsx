@@ -29,8 +29,13 @@ export default function StudentList({ students, classes, deleteById }) {
               <td>{student.age}</td>
               <td>{student.email}</td>
               <td>
-                {student.classes.map((classId) => classMap[classId]).join(", ")}
+                {Array.isArray(student.classes)
+                  ? student.classes
+                      .map((classId) => classMap[classId])
+                      .join(", ")
+                  : ""}
               </td>
+
               <td>
                 <div className="btn-group" role="group">
                   <button className="btn btn-primary">Edit</button>
